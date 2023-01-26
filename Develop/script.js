@@ -28,19 +28,20 @@ $(function () {
   // current hour in 24-hour time?
   var hour = dayjs().hour()
   var count = 9
-  for (let i = 0; i < hourList.length+1 ; i++) {
+  console.log(hour, "hour--", count, "count--", hour == count, "hour == count --", hour < count, "hour < count --")
+  for (let i = 0; i < hourList.length ; i++) {
     if (hour == count) {
       hourList[i].classList.remove("future");
       hourList[i].classList.add("present");
-      count++
     }
     if (hour > count) {
-      hourList[i-1].classList.remove("present");
-      hourList[i-1].classList.add("future");
-      
+      hourList[i].classList.remove("future");
+      hourList[i].classList.remove("present");
+      hourList[i].classList.add("past");
     }
-
+    count++
   }
+  console.log(hour, "hour--", count, "count--", hour == count, "hour == count --", hour < count, "hour < count --")
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
