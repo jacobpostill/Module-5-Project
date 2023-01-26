@@ -3,7 +3,16 @@
 // in the html.
 var unixFormat = dayjs().format('M/D/YYYY');
 $('#currentDay').text(unixFormat);
-
+const hour9 = document.getElementById("hour-9");
+const hour10 = document.getElementById("hour-10");
+const hour11 = document.getElementById("hour-11");
+const hour12 = document.getElementById("hour-12");
+const hour13 = document.getElementById("hour-13");
+const hour14 = document.getElementById("hour-14");
+const hour15 = document.getElementById("hour-15");
+const hour16 = document.getElementById("hour-16");
+const hour17 = document.getElementById("hour-17");
+let hourList = [hour9,hour10,hour11,hour12,hour13,hour14,hour15,hour16,hour17]
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -17,6 +26,21 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+  var hour = dayjs().hour()
+  var count = 9
+  for (let i = 0; i < hourList.length+1 ; i++) {
+    if (hour == count) {
+      hourList[i].classList.remove("future");
+      hourList[i].classList.add("present");
+      count++
+    }
+    if (hour > count) {
+      hourList[i-1].classList.remove("present");
+      hourList[i-1].classList.add("future");
+      
+    }
+
+  }
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
