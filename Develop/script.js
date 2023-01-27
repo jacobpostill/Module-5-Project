@@ -31,8 +31,10 @@ $(function () {
       let id = document.getElementById("text-" + i).id;
       console.log(e.target)
       localStorage.setItem(id, value);
-      document.getElementById("save-" + i).addEventListener('click', clickEvent);
-    }}
+      
+    }
+    document.getElementById("save-" + i).addEventListener('click', clickEvent);
+  }
 
   //
   // TODO: Add code to apply the past, present, or future class to each time
