@@ -12,7 +12,7 @@ const hour14 = document.getElementById("hour-14");
 const hour15 = document.getElementById("hour-15");
 const hour16 = document.getElementById("hour-16");
 const hour17 = document.getElementById("hour-17");
-const save = document.querySelectorAll("saveBtn");
+const save = document.querySelectorAll(".saveBtn");
 
 let hourList = [hour9,hour10,hour11,hour12,hour13,hour14,hour15,hour16,hour17]
 
@@ -23,14 +23,16 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  let clickEvent = (e) => {
-    let value = e.target.previousElementSibling.value;
-    let id = e.target.id;
-    localStorage.setItem(id, value);
-}
-  for(var i = 0; i < save.length; i++) {
-    save[i].addEventListener('click', clickEvent)
-  };
+  for (let i = 9; i < 18 ; i++) {
+    let clickEvent = (e) => {
+      var counter = 0
+      let value = document.getElementById("text-" + i).value;
+      console.log(value)
+      let id = document.getElementById("text-" + i).id;
+      console.log(e.target)
+      localStorage.setItem(id, value);
+      document.getElementById("save-" + i).addEventListener('click', clickEvent);
+    }}
 
   //
   // TODO: Add code to apply the past, present, or future class to each time
