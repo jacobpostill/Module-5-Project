@@ -12,7 +12,7 @@ const hour14 = document.getElementById("hour-14");
 const hour15 = document.getElementById("hour-15");
 const hour16 = document.getElementById("hour-16");
 const hour17 = document.getElementById("hour-17");
-const save = document.querySelectorAll(".saveBtn");
+const save = document.querySelectorAll("saveBtn");
 
 let hourList = [hour9,hour10,hour11,hour12,hour13,hour14,hour15,hour16,hour17]
 
